@@ -712,6 +712,8 @@ img, svg {
   border-radius: 12px;
   transition: all 0.3s ease;
   border-top: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card:hover {
@@ -748,6 +750,13 @@ img, svg {
   font-weight: 600;
   font-size: 0.9rem;
   transition: color 0.3s ease;
+  margin-top: auto;
+}
+
+@media (min-width: 1025px) {
+  .services-grid .service-card:nth-child(9) {
+    grid-column: 2;
+  }
 }
 
 .service-card:hover .service-link {
