@@ -1,5 +1,80 @@
 'use strict';
 
+/* ─── Remove "Powered by Netlify" Badge ─────────────────── */
+(function removeNetlifyBadge() {
+  const SELECTORS = [
+    '[data-netlify-badge]',
+    '.netlify-badge',
+    '#netlify-badge',
+    'a[href*="netlify.com"]',
+    'a[href*="netlify.app"]',
+    'iframe[src*="netlify"]',
+    'div[class*="netlify"]',
+    'span[class*="netlify"]',
+    '[style*="netlify"]',
+  ];
+
+  function killBadge() {
+    SELECTORS.forEach(sel => {
+      document.querySelectorAll(sel).forEach(el => {
+        // Only remove if it looks like the badge (not user content)
+        if (
+          el.tagName === 'A' &&
+          el.href &&
+          el.href.includes('netlify.com') &&
+          (el.textContent.toLowerCase().includes('netlify') ||
+           el.children.length === 0 ||
+           el.style.position === 'fixed' ||
+           getComputedStyle(el).position === 'fixed')
+        ) {
+          el.remove();
+        } else if (el.tagName !== 'A') {
+          el.remove();
+        }
+      });
+    });
+
+    // Also nuke any fixed-position small elements injected near bottom-right
+    document.querySelectorAll('body > *').forEach(el => {
+      const style = getComputedStyle(el);
+      if (
+        style.position === 'fixed' &&
+        (parseInt(style.bottom) >= 0 && parseInt(style.bottom) <= 60) &&
+        (parseInt(style.right) >= 0 && parseInt(style.right) <= 60) &&
+        el.tagName !== 'BUTTON' &&
+        el.tagName !== 'A'
+      ) {
+        const html = el.innerHTML.toLowerCase();
+        if (html.includes('netlify')) el.remove();
+      }
+    });
+  }
+
+  // Run immediately
+  killBadge();
+
+  // Run after DOM loads
+  document.addEventListener('DOMContentLoaded', killBadge);
+
+  // Run after full page load (scripts/iframes)
+  window.addEventListener('load', killBadge);
+
+  // Watch for badge being dynamically injected
+  const observer = new MutationObserver(() => killBadge());
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true,
+    attributes: false,
+  });
+
+  // Periodic sweep every 2s for first 30s (catches lazy-loaded badges)
+  let sweepCount = 0;
+  const sweepInterval = setInterval(() => {
+    killBadge();
+    if (++sweepCount >= 15) clearInterval(sweepInterval);
+  }, 2000);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── ICAI Disclaimer Modal ─────────────────────────── */

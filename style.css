@@ -1,3 +1,26 @@
+/* ═══ Hide "Powered by Netlify" badge — all known patterns ═══ */
+[data-netlify-badge],
+.netlify-badge,
+#netlify-badge,
+a[href*="netlify.com"][target="_blank"],
+a[href*="netlify.app"][target="_blank"],
+iframe[src*="netlify"],
+div[class*="netlify"],
+span[class*="netlify"],
+img[src*="netlify"],
+img[alt*="Netlify"],
+img[alt*="netlify"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
 /* Base Reset & Variables */
 :root {
   --primary-dark: #1B3A6B;
@@ -891,6 +914,14 @@ img, svg {
 .avatar-2 { background: linear-gradient(135deg, var(--primary-mid), #3a7bd5); }
 .avatar-3 { background: linear-gradient(135deg, var(--green), #56ab2f); }
 .avatar-4 { background: linear-gradient(135deg, var(--saffron), #f12711); }
+
+.avatar-5 {
+  background: linear-gradient(135deg, #2D6A4F, #52B788);
+}
+
+.avatar-6 {
+  background: linear-gradient(135deg, #6B2D6A, #A855C5);
+}
 
 .team-card h3 {
   color: var(--primary-dark);
