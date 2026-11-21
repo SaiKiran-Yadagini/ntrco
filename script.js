@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 /* ─── Remove "Powered by Netlify" Badge ─────────────────── */
 (function removeNetlifyBadge() {
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', (e) => {
       closeMenu();
       const targetId = link.getAttribute('href');
-      if (targetId === '#hero') {
+      if (targetId === '#home') {
          e.preventDefault();
          window.scrollTo({ top: 0, behavior: 'smooth' });
          history.replaceState(null, null, window.location.pathname + window.location.search);
