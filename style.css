@@ -1,4 +1,4 @@
-/* ═══ Hide "Powered by Netlify" badge — all known patterns ═══ */
+﻿/* ═══ Hide "Powered by Netlify" badge — all known patterns ═══ */
 [data-netlify-badge],
 .netlify-badge,
 #netlify-badge,
@@ -466,7 +466,7 @@ img, svg {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   text-align: center;
 }
@@ -725,7 +725,7 @@ img, svg {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -874,7 +874,7 @@ img, svg {
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-top: 3rem;
 }
@@ -1523,10 +1523,10 @@ img, svg {
   }
   
   .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
   }
-  .stat-item:nth-child(2)::after {
+  .stat-item:nth-child(3)::after {
     display: none;
   }
 
