@@ -23,15 +23,16 @@ img[alt*="netlify"] {
 
 /* Base Reset & Variables */
 :root {
-  --primary-dark: #1B3A6B;
-  --primary-mid: #1F5FAD;
-  --saffron: #E87722;
-  --green: #3A7D2C;
-  --gold: #C9A84C;
-  --off-white: #F4F7FC;
-  --text-dark: #0D1B35;
-  --text-muted: #5A6A80;
-  --border: #D0DDF0;
+  --primary-dark: #111111;
+  --primary-mid: #2a2a2a;
+  --saffron: #D9E96A;
+  --saffron-dark: #b8c945;
+  --green: #555B55;
+  --gold: #D9E96A;
+  --off-white: #F5F6F2;
+  --text-dark: #111111;
+  --text-muted: #555B55;
+  --border: #E0E0DC;
   --white: #FFFFFF;
 }
 
@@ -47,7 +48,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', -apple-system, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
   color: var(--text-dark);
   background-color: var(--white);
   line-height: 1.6;
@@ -95,6 +96,7 @@ img, svg {
   outline: 2px solid var(--saffron);
   outline-offset: 3px;
   border-radius: 4px;
+  outline-color: #111111;
 }
 
 /* Reusable Components */
@@ -142,10 +144,13 @@ img, svg {
 .btn-primary {
   background-color: var(--primary-dark);
   color: var(--white);
+  border-color: var(--primary-dark);
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-mid);
+  background-color: var(--saffron);
+  color: var(--primary-dark);
+  border-color: var(--saffron);
 }
 
 .btn-outline {
@@ -166,7 +171,7 @@ img, svg {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(27, 58, 107, 0.95);
+  background: rgba(17, 17, 17, 0.95);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -483,7 +488,7 @@ img, svg {
   right: -1rem;
   height: 80%;
   width: 1px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(217,233,106,0.3);
 }
 
 .stat-number {
@@ -614,11 +619,11 @@ img, svg {
 }
 
 .about-right-card {
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-mid) 100%);
+  background: linear-gradient(135deg, #111111 0%, #2a2a2a 100%);
   padding: 3rem;
   border-radius: 12px;
   color: var(--white);
-  box-shadow: 0 20px 40px rgba(27, 58, 107, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
 }
 
 .about-right-card h3 {
@@ -678,7 +683,7 @@ img, svg {
   width: 90%;
   height: 2px;
   background: transparent;
-  border-top: 2px dashed var(--primary-mid);
+  border-top: 2px dashed var(--saffron);
   z-index: 0;
 }
 
@@ -692,7 +697,7 @@ img, svg {
   width: 50px;
   height: 50px;
   background: var(--saffron);
-  color: var(--white);
+  color: var(--primary-dark);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -851,7 +856,7 @@ img, svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--white);
+  color: var(--primary-dark);
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -1007,7 +1012,7 @@ img, svg {
 /* Testimonials Section */
 .testimonials {
   background: var(--white);
-  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-image: radial-gradient(#e0e0dc 1px, transparent 1px);
   background-size: 20px 20px;
   text-align: center;
   position: relative;
@@ -1029,7 +1034,7 @@ img, svg {
   padding: 2.5rem 3rem;
   border-radius: 16px;
   border: 1px solid var(--border);
-  box-shadow: 0 8px 32px rgba(27,58,107,0.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.55s ease, visibility 0.55s ease;
@@ -1250,8 +1255,8 @@ img, svg {
 
 .form-control:focus {
   outline: none;
-  border-color: var(--primary-mid);
-  box-shadow: 0 0 0 2px rgba(31, 95, 173, 0.1);
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 3px rgba(217, 233, 106, 0.25);
 }
 
 .btn-submit {
@@ -1699,4 +1704,57 @@ img, svg {
   .modal-card {
     padding: 2rem 1.5rem;
   }
+}
+
+/* ── Brand Icon Helpers ─────────────────── */
+.feat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background: rgba(217,233,106,0.18);
+  border-radius: 8px;
+  padding: 6px;
+}
+.feat-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--saffron);
+}
+.itag-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 4px;
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+.industry-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.cdetail-icon {
+  width: 18px;
+  height: 18px;
+  stroke: var(--saffron);
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+.contact-detail-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(217,233,106,0.15);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.feature-icon-circle svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--primary-dark);
 }
